@@ -24,7 +24,6 @@ namespace QuizApp
         {
             extract convert = new extract();
             convert.array_of_groupboxes[0].Visible = true;
-
         }
 
 
@@ -64,22 +63,13 @@ namespace QuizApp
         {
             List<question_and_answer> values = null;
             using (StreamReader r = new StreamReader("file.json"))
-
             {
-
                 string json = r.ReadToEnd();
                 values = JsonConvert.DeserializeObject<List<question_and_answer>>(json);
-
             }
 
-
-
-
-
             try
-
             {
-
                 foreach (question_and_answer value in values)
 
                 {
@@ -97,20 +87,15 @@ namespace QuizApp
                     }
                     Debug.WriteLine(easy_questions);
 
-
                     generate_label = new generate_labels(value);
                     array_of_groupboxes.Add(generate_label.return_gbox());
-
                 }
             }
-
             catch
-
             {
                 Label EmptyLabel = new Label();
                 EmptyLabel.Text = "json file empty";
                 Application.OpenForms["Form1"].Controls.Add(EmptyLabel);
-
             }
         }
     }
@@ -144,7 +129,6 @@ namespace QuizApp
             if (rb == null)
             {
                 MessageBox.Show("Sender is not a RadioButton");
-
                 return;
             }
 
@@ -176,8 +160,6 @@ namespace QuizApp
 
             foreach (string possibility in q_and_a.Possibilities)
             {
-
-
                 RadioButton rb = new RadioButton();
                 rb.Name = possibility;
                 rb.Text = possibility;
